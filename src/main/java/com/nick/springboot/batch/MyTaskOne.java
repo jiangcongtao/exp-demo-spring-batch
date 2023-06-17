@@ -10,6 +10,8 @@ public class MyTaskOne implements Tasklet {
     public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext) throws Exception {
         System.out.println(this.getClass().getName() + " => start ...");
         // ... your task processing code
+        // get Job parameter
+        System.out.println(String.format("Hello Step %s, %s", chunkContext.getStepContext().getId(), chunkContext.getStepContext().getJobName()));
         System.out.println(this.getClass().getName() + " <= done!");
         return RepeatStatus.FINISHED;
 
